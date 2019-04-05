@@ -30,6 +30,7 @@ class UserProfileManager(BaseUserManager):
 
         user.save(using=self._db)
 
+        return user
 
 class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Respents a "user profile" INside our system"""
@@ -41,11 +42,10 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     objects = UserProfileManager()
 
     USERNAME_FIELD = 'email'
-    REQUERED_FIELD = ['name']
+    REQUIRED_FIELDS = ['name']
 
     def get_full_name(self):
         """Used to get a users full"""
-
         return self.name
 
     def get_short_name(self):
@@ -55,3 +55,5 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         """Django users this when it needs to convert the object to a string"""
+
+        return self.email
