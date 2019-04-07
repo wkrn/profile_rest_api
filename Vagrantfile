@@ -27,6 +27,7 @@ $install_package = <<-SHELL
   # Install ansible
   sudo pip3 install ansible==2.4.2.0
   sudo pip3 install -U ansible
+  sudo pip install django uwsgi
 
   # Install and configure python virtualenvwrapper.
   sudo pip install virtualenvwrapper
